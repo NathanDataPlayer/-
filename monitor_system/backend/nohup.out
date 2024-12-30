@@ -1,0 +1,1015 @@
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /                         --> monitor_system/backend/routers.SetupRouter.func1 (3 handlers)
+[GIN-debug] GET    /monitor/getDatabases     --> monitor_system/backend/monitor.GetDatabases (3 handlers)
+[GIN-debug] GET    /monitor/getTables        --> monitor_system/backend/monitor.GetTables (3 handlers)
+[GIN-debug] POST   /monitor/addMonitorConfig --> monitor_system/backend/monitor.AddConfig (3 handlers)
+[GIN-debug] POST   /monitor/getIncreaseAbove50 --> monitor_system/backend/monitor.GetIncreaseAbove50 (3 handlers)
+[GIN-debug] POST   /monitor/getDecreaseBelow50 --> monitor_system/backend/monitor.GetDecreaseBelow50 (3 handlers)
+[GIN-debug] POST   /monitor/getZeroCount     --> monitor_system/backend/monitor.GetZeroCount (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:8080
+[GIN] 2024/12/26 - 17:47:45 | 304 |      62.647µs |    192.168.65.1 | GET      "/"
+[GIN] 2024/12/26 - 17:47:45 | 200 |     914.959µs |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/26 - 17:47:47 | 200 |     818.071µs |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+2024/12/26 17:48:02 Received config: {ID:0 TableName:ods_news MonitorTime:17:49:00 Indicators:[环比数据量 > 50% 数量为零]}
+2024/12/26 17:48:02 Executing query: INSERT INTO dw_monitor.table_configs (id, table_name, monitor_time,indicator) VALUES (2120986552, 'ods_news', '17:49:00','环比数据量 > 50%')
+2024/12/26 17:48:03 Added cron job for ods_news with spec 0 49 17 * * *
+Added cron job for ods_news with spec 0 49 17 * * *
+2024/12/26 17:48:03 Executing query: INSERT INTO dw_monitor.table_configs (id, table_name, monitor_time,indicator) VALUES (38897696, 'ods_news', '17:49:00','数量为零')
+2024/12/26 17:48:03 Added cron job for ods_news with spec 0 49 17 * * *
+Added cron job for ods_news with spec 0 49 17 * * *
+[GIN] 2024/12/26 - 17:48:03 | 200 |  132.671893ms |    192.168.65.1 | POST     "/monitor/addMonitorConfig"
+2024/12/26 17:49:00 Table: ods_news, Today's Row Count: 300, Previous Row Count: 1140, Increase: -73%
+2024/12/26 17:49:00 Table: ods_news, Today's Row Count: 300, Previous Row Count: 1140, Increase: -73%
+signal: killed
+# monitor_system/backend/monitor
+monitor/monitor.go:142:27: not enough arguments in call to performMonitoring
+	have (string)
+	want (string, []string)
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /                         --> monitor_system/backend/routers.SetupRouter.func1 (3 handlers)
+[GIN-debug] GET    /monitor/getDatabases     --> monitor_system/backend/monitor.GetDatabases (3 handlers)
+[GIN-debug] GET    /monitor/getTables        --> monitor_system/backend/monitor.GetTables (3 handlers)
+[GIN-debug] POST   /monitor/addMonitorConfig --> monitor_system/backend/monitor.AddConfig (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:8080
+2024/12/26 18:06:32 Added cron job for ods_news with spec 0 49 17 * * *
+Added cron job for ods_news with spec 0 49 17 * * *
+2024/12/26 18:06:32 Added cron job for ods_news with spec 0 49 17 * * *
+Added cron job for ods_news with spec 0 49 17 * * *
+ID: %!s(cron.EntryID=1), Expression: &{%!s(uint64=1) %!s(uint64=562949953421312) %!s(uint64=131072) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-27 17:49:00 +0800 CST
+ID: %!s(cron.EntryID=2), Expression: &{%!s(uint64=1) %!s(uint64=562949953421312) %!s(uint64=131072) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-27 17:49:00 +0800 CST
+[GIN] 2024/12/26 - 18:06:51 | 304 |     155.838µs |    192.168.65.1 | GET      "/"
+[GIN] 2024/12/26 - 18:06:51 | 200 |     1.03198ms |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/26 - 18:06:54 | 200 |     795.522µs |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+2024/12/26 18:07:16 Received config: {ID:0 TableName:ods_news MonitorTime:18:08:00 Indicators:[环比数据量 > 50% 数量为零]}
+2024/12/26 18:07:16 Executing query: INSERT INTO dw_monitor.table_configs (id, table_name, monitor_time,indicator) VALUES (20427154, 'ods_news', '18:08:00','环比数据量 > 50%')
+2024/12/26 18:07:16 Added cron job for ods_news with spec 0 8 18 * * *
+Added cron job for ods_news with spec 0 8 18 * * *
+2024/12/26 18:07:16 Executing query: INSERT INTO dw_monitor.table_configs (id, table_name, monitor_time,indicator) VALUES (90464035, 'ods_news', '18:08:00','数量为零')
+2024/12/26 18:07:16 Added cron job for ods_news with spec 0 8 18 * * *
+Added cron job for ods_news with spec 0 8 18 * * *
+[GIN] 2024/12/26 - 18:07:16 | 200 |   139.82914ms |    192.168.65.1 | POST     "/monitor/addMonitorConfig"
+[GIN] 2024/12/26 - 18:09:00 | 200 |    2.288435ms |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+2024/12/26 18:09:12 Received config: {ID:0 TableName:ods_news MonitorTime:18:10:00 Indicators:[环比数据量 < 50%]}
+2024/12/26 18:09:12 Executing query: INSERT INTO dw_monitor.table_configs (id, table_name, monitor_time,indicator) VALUES (292311872, 'ods_news', '18:10:00','环比数据量 < 50%')
+2024/12/26 18:09:12 Added cron job for ods_news with spec 0 10 18 * * *
+Added cron job for ods_news with spec 0 10 18 * * *
+[GIN] 2024/12/26 - 18:09:12 | 200 |   65.159233ms |    192.168.65.1 | POST     "/monitor/addMonitorConfig"
+2024/12/26 18:10:00 Warning: The increase for table ods_news is below 50%. Current: 300, Previous: 1140.
+[mysql] 2024/12/27 10:48:46 connection.go:49: closing bad idle connection: EOF
+[GIN] 2024/12/27 - 10:48:46 | 200 |    7.122916ms |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+[GIN] 2024/12/27 - 11:09:00 | 304 |     150.471µs |    192.168.65.1 | GET      "/"
+[GIN] 2024/12/27 - 11:09:00 | 200 |     2.08196ms |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/27 - 11:09:03 | 200 |     770.043µs |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+2024/12/27 11:09:23 Received config: {ID:0 TableName:ods_news MonitorTime:11:10:00 Indicators:[环比数据量 < 50% 环比数据量 > 50% 数量为零]}
+2024/12/27 11:09:23 Executing query: INSERT INTO dw_monitor.table_configs (id, table_name, monitor_time,indicator) VALUES (1655074753, 'ods_news', '11:10:00','环比数据量 < 50%')
+2024/12/27 11:09:23 Added cron job for ods_news with spec 0 10 11 * * *
+Added cron job for ods_news with spec 0 10 11 * * *
+2024/12/27 11:09:23 Executing query: INSERT INTO dw_monitor.table_configs (id, table_name, monitor_time,indicator) VALUES (1720527847, 'ods_news', '11:10:00','环比数据量 > 50%')
+2024/12/27 11:09:23 Added cron job for ods_news with spec 0 10 11 * * *
+Added cron job for ods_news with spec 0 10 11 * * *
+2024/12/27 11:09:23 Executing query: INSERT INTO dw_monitor.table_configs (id, table_name, monitor_time,indicator) VALUES (1788640386, 'ods_news', '11:10:00','数量为零')
+2024/12/27 11:09:23 Added cron job for ods_news with spec 0 10 11 * * *
+Added cron job for ods_news with spec 0 10 11 * * *
+[GIN] 2024/12/27 - 11:09:23 | 200 |  202.051802ms |    192.168.65.1 | POST     "/monitor/addMonitorConfig"
+2024/12/27 11:10:00 Warning: The increase for table ods_news is below 50%. Current: 600, Previous: 540.
+2024/12/27 11:10:00 Warning: The increase for table ods_news is below 50%. Current: 600, Previous: 540.
+2024/12/27 11:10:00 Warning: The increase for table ods_news is below 50%. Current: 600, Previous: 540.
+[GIN] 2024/12/27 - 12:00:35 | 200 |    7.167719ms |    192.168.65.1 | GET      "/"
+[GIN] 2024/12/27 - 12:00:35 | 200 |    2.099539ms |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/27 - 12:00:37 | 200 |    1.123964ms |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+[GIN] 2024/12/27 - 12:00:39 | 404 |         753ns |    192.168.65.1 | GET      "/monitor/getPrimaryKeys?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 12:00:46 | 304 |      96.908µs |    192.168.65.1 | GET      "/"
+[GIN] 2024/12/27 - 12:00:46 | 200 |     930.502µs |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/27 - 12:00:49 | 200 |    1.003584ms |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+[GIN] 2024/12/27 - 12:00:50 | 404 |         638ns |    192.168.65.1 | GET      "/monitor/getPrimaryKeys?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 12:01:15 | 404 |         513ns |    192.168.65.1 | GET      "/monitor/getPrimaryKeys?database=dw&table=dws_sr_news_di_mv"
+[GIN] 2024/12/27 - 12:01:17 | 404 |         823ns |    192.168.65.1 | GET      "/monitor/getPrimaryKeys?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 12:07:32 | 200 |     148.496µs |    192.168.65.1 | GET      "/"
+[GIN] 2024/12/27 - 12:07:32 | 200 |     1.69131ms |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/27 - 12:07:34 | 200 |    1.851776ms |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+[GIN] 2024/12/27 - 12:07:39 | 404 |         424ns |    192.168.65.1 | GET      "/monitor/getPrimaryKeys?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 12:07:42 | 404 |         495ns |    192.168.65.1 | GET      "/monitor/getPrimaryKeys?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 12:07:46 | 404 |         518ns |    192.168.65.1 | GET      "/monitor/getPrimaryKeys?database=dw&table=ods_news"
+signal: killed
+# monitor_system/backend/monitor
+monitor/monitor.go:168:44: not enough arguments in call to performMonitoring
+	have (string, []string)
+	want (string, []string, []string)
+# monitor_system/backend/routers
+routers/routers.go:21:26: undefined: GetColumns
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /                         --> monitor_system/backend/routers.SetupRouter.func1 (3 handlers)
+[GIN-debug] GET    /monitor/getDatabases     --> monitor_system/backend/monitor.GetDatabases (3 handlers)
+[GIN-debug] GET    /monitor/getTables        --> monitor_system/backend/monitor.GetTables (3 handlers)
+[GIN-debug] GET    /getColumns               --> monitor_system/backend/monitor.GetColumns (3 handlers)
+[GIN-debug] POST   /monitor/addMonitorConfig --> monitor_system/backend/monitor.AddConfig (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:8080
+2024/12/27 12:58:33 Added cron job for ods_news with spec 0 10 11 * * *
+Added cron job for ods_news with spec 0 10 11 * * *
+2024/12/27 12:58:33 Added cron job for ods_news with spec 0 10 11 * * *
+Added cron job for ods_news with spec 0 10 11 * * *
+2024/12/27 12:58:33 Added cron job for ods_news with spec 0 10 11 * * *
+Added cron job for ods_news with spec 0 10 11 * * *
+ID: %!s(cron.EntryID=1), Expression: &{%!s(uint64=1) %!s(uint64=1024) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-28 11:10:00 +0800 CST
+ID: %!s(cron.EntryID=2), Expression: &{%!s(uint64=1) %!s(uint64=1024) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-28 11:10:00 +0800 CST
+ID: %!s(cron.EntryID=3), Expression: &{%!s(uint64=1) %!s(uint64=1024) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-28 11:10:00 +0800 CST
+[GIN] 2024/12/27 - 12:58:39 | 304 |     182.898µs |    192.168.65.1 | GET      "/"
+[GIN] 2024/12/27 - 12:58:39 | 200 |    1.008484ms |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/27 - 12:58:41 | 200 |     912.412µs |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+[GIN] 2024/12/27 - 12:58:44 | 404 |      12.032µs |    192.168.65.1 | GET      "/monitor/getPrimaryKeys?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 12:58:52 | 404 |         628ns |    192.168.65.1 | GET      "/monitor/getPrimaryKeys?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 13:01:19 | 200 |    4.128934ms |    192.168.65.1 | GET      "/"
+[GIN] 2024/12/27 - 13:01:19 | 200 |    1.819448ms |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/27 - 13:01:21 | 200 |     711.384µs |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+[GIN] 2024/12/27 - 13:01:24 | 404 |         648ns |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 17:45:47 | 304 |     216.975µs |    192.168.65.1 | GET      "/"
+[GIN] 2024/12/27 - 17:45:47 | 200 |    1.473179ms |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/27 - 17:45:49 | 200 |     711.689µs |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+[GIN] 2024/12/27 - 17:45:52 | 404 |         524ns |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 17:46:17 | 304 |      64.936µs |    192.168.65.1 | GET      "/"
+[GIN] 2024/12/27 - 17:46:17 | 200 |      773.52µs |    192.168.65.1 | GET      "/monitor/getDatabases"
+signal: killed
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /                         --> monitor_system/backend/routers.SetupRouter.func1 (3 handlers)
+[GIN-debug] GET    /monitor/getDatabases     --> monitor_system/backend/monitor.GetDatabases (3 handlers)
+[GIN-debug] GET    /monitor/getTables        --> monitor_system/backend/monitor.GetTables (3 handlers)
+[GIN-debug] GET    /monitor/getColumns       --> monitor_system/backend/monitor.GetColumns (3 handlers)
+[GIN-debug] POST   /monitor/addMonitorConfig --> monitor_system/backend/monitor.AddConfig (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:8080
+2024/12/27 17:46:35 Added cron job for ods_news with spec 0 10 11 * * *
+Added cron job for ods_news with spec 0 10 11 * * *
+2024/12/27 17:46:35 Added cron job for ods_news with spec 0 10 11 * * *
+Added cron job for ods_news with spec 0 10 11 * * *
+2024/12/27 17:46:35 Added cron job for ods_news with spec 0 10 11 * * *
+Added cron job for ods_news with spec 0 10 11 * * *
+ID: %!s(cron.EntryID=1), Expression: &{%!s(uint64=1) %!s(uint64=1024) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-28 11:10:00 +0800 CST
+ID: %!s(cron.EntryID=2), Expression: &{%!s(uint64=1) %!s(uint64=1024) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-28 11:10:00 +0800 CST
+ID: %!s(cron.EntryID=3), Expression: &{%!s(uint64=1) %!s(uint64=1024) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-28 11:10:00 +0800 CST
+[GIN] 2024/12/27 - 17:46:41 | 304 |      59.657µs |    192.168.65.1 | GET      "/"
+[GIN] 2024/12/27 - 17:46:41 | 200 |     652.747µs |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/27 - 17:46:43 | 200 |     805.622µs |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+[GIN] 2024/12/27 - 17:46:45 | 200 |    4.820857ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+2024/12/27 17:47:11 Received config: {ID:0 TableName:ods_news MonitorTime:17:49:00 Indicators:[uniquekey 主键重复] PrimaryKey:[uniquekey]}
+2024/12/27 17:47:11 Executing query: INSERT INTO dw_monitor.table_configs (id, table_name, monitor_time,indicator) VALUES (566478558, 'ods_news', '17:49:00','uniquekey')
+2024/12/27 17:47:11 Added cron job for ods_news with spec 0 49 17 * * *
+Added cron job for ods_news with spec 0 49 17 * * *
+2024/12/27 17:47:11 Executing query: INSERT INTO dw_monitor.table_configs (id, table_name, monitor_time,indicator) VALUES (632874638, 'ods_news', '17:49:00','主键重复')
+2024/12/27 17:47:11 Added cron job for ods_news with spec 0 49 17 * * *
+Added cron job for ods_news with spec 0 49 17 * * *
+[GIN] 2024/12/27 - 17:47:11 | 200 |   134.86899ms |    192.168.65.1 | POST     "/monitor/addMonitorConfig"
+Error checking for duplicate primary keys in table ods_news: Error 1064 (HY000): Every derived table must have its own alias
+Error checking for duplicate primary keys in table ods_news: Error 1064 (HY000): Every derived table must have its own alias
+signal: killed
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /                         --> monitor_system/backend/routers.SetupRouter.func1 (3 handlers)
+[GIN-debug] GET    /monitor/getDatabases     --> monitor_system/backend/monitor.GetDatabases (3 handlers)
+[GIN-debug] GET    /monitor/getTables        --> monitor_system/backend/monitor.GetTables (3 handlers)
+[GIN-debug] GET    /monitor/getColumns       --> monitor_system/backend/monitor.GetColumns (3 handlers)
+[GIN-debug] POST   /monitor/addMonitorConfig --> monitor_system/backend/monitor.AddConfig (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:8080
+2024/12/27 17:51:36 Added cron job for ods_news with spec 0 10 11 * * *
+Added cron job for ods_news with spec 0 10 11 * * *
+2024/12/27 17:51:36 Added cron job for ods_news with spec 0 49 17 * * *
+Added cron job for ods_news with spec 0 49 17 * * *
+2024/12/27 17:51:36 Added cron job for ods_news with spec 0 10 11 * * *
+Added cron job for ods_news with spec 0 10 11 * * *
+2024/12/27 17:51:36 Added cron job for ods_news with spec 0 49 17 * * *
+Added cron job for ods_news with spec 0 49 17 * * *
+2024/12/27 17:51:36 Added cron job for ods_news with spec 0 10 11 * * *
+Added cron job for ods_news with spec 0 10 11 * * *
+ID: %!s(cron.EntryID=1), Expression: &{%!s(uint64=1) %!s(uint64=1024) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-28 11:10:00 +0800 CST
+ID: %!s(cron.EntryID=3), Expression: &{%!s(uint64=1) %!s(uint64=1024) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-28 11:10:00 +0800 CST
+ID: %!s(cron.EntryID=5), Expression: &{%!s(uint64=1) %!s(uint64=1024) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-28 11:10:00 +0800 CST
+ID: %!s(cron.EntryID=2), Expression: &{%!s(uint64=1) %!s(uint64=562949953421312) %!s(uint64=131072) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-28 17:49:00 +0800 CST
+ID: %!s(cron.EntryID=4), Expression: &{%!s(uint64=1) %!s(uint64=562949953421312) %!s(uint64=131072) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-28 17:49:00 +0800 CST
+[GIN] 2024/12/27 - 17:51:39 | 304 |      68.781µs |    192.168.65.1 | GET      "/"
+[GIN] 2024/12/27 - 17:51:39 | 200 |     942.381µs |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/27 - 17:51:41 | 200 |     647.306µs |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+[GIN] 2024/12/27 - 17:51:44 | 200 |    5.582595ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+2024/12/27 17:51:56 Received config: {ID:0 TableName:ods_news MonitorTime:17:52:00 Indicators:[uniquekey 主键重复] PrimaryKey:[uniquekey]}
+2024/12/27 17:51:56 Executing query: INSERT INTO dw_monitor.table_configs (id, table_name, monitor_time,indicator) VALUES (1795575575, 'ods_news', '17:52:00','uniquekey')
+2024/12/27 17:51:56 Added cron job for ods_news with spec 0 52 17 * * *
+Added cron job for ods_news with spec 0 52 17 * * *
+2024/12/27 17:51:56 Executing query: INSERT INTO dw_monitor.table_configs (id, table_name, monitor_time,indicator) VALUES (1866172594, 'ods_news', '17:52:00','主键重复')
+2024/12/27 17:51:56 Added cron job for ods_news with spec 0 52 17 * * *
+Added cron job for ods_news with spec 0 52 17 * * *
+[GIN] 2024/12/27 - 17:51:56 | 200 |  141.317796ms |    192.168.65.1 | POST     "/monitor/addMonitorConfig"
+2024/12/27 17:52:00 Alert: Duplicate primary keys found in table ods_news with fields [uniquekey].
+2024/12/27 17:52:00 Alert: Duplicate primary keys found in table ods_news with fields [uniquekey].
+signal: killed
+# monitor_system/backend/monitor
+monitor/monitor.go:322:45: undefined: ableName
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /                         --> monitor_system/backend/routers.SetupRouter.func1 (3 handlers)
+[GIN-debug] GET    /monitor/getDatabases     --> monitor_system/backend/monitor.GetDatabases (3 handlers)
+[GIN-debug] GET    /monitor/getTables        --> monitor_system/backend/monitor.GetTables (3 handlers)
+[GIN-debug] GET    /monitor/getColumns       --> monitor_system/backend/monitor.GetColumns (3 handlers)
+[GIN-debug] POST   /monitor/addMonitorConfig --> monitor_system/backend/monitor.AddConfig (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:8080
+2024/12/27 17:57:40 Added cron job for ods_news with spec 0 10 11 * * *
+Added cron job for ods_news with spec 0 10 11 * * *
+2024/12/27 17:57:40 Added cron job for ods_news with spec 0 52 17 * * *
+Added cron job for ods_news with spec 0 52 17 * * *
+2024/12/27 17:57:40 Added cron job for ods_news with spec 0 49 17 * * *
+Added cron job for ods_news with spec 0 49 17 * * *
+2024/12/27 17:57:40 Added cron job for ods_news with spec 0 10 11 * * *
+Added cron job for ods_news with spec 0 10 11 * * *
+2024/12/27 17:57:40 Added cron job for ods_news with spec 0 49 17 * * *
+Added cron job for ods_news with spec 0 49 17 * * *
+2024/12/27 17:57:40 Added cron job for ods_news with spec 0 10 11 * * *
+Added cron job for ods_news with spec 0 10 11 * * *
+2024/12/27 17:57:40 Added cron job for ods_news with spec 0 52 17 * * *
+Added cron job for ods_news with spec 0 52 17 * * *
+ID: %!s(cron.EntryID=1), Expression: &{%!s(uint64=1) %!s(uint64=1024) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-28 11:10:00 +0800 CST
+ID: %!s(cron.EntryID=4), Expression: &{%!s(uint64=1) %!s(uint64=1024) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-28 11:10:00 +0800 CST
+ID: %!s(cron.EntryID=6), Expression: &{%!s(uint64=1) %!s(uint64=1024) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-28 11:10:00 +0800 CST
+ID: %!s(cron.EntryID=3), Expression: &{%!s(uint64=1) %!s(uint64=562949953421312) %!s(uint64=131072) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-28 17:49:00 +0800 CST
+ID: %!s(cron.EntryID=5), Expression: &{%!s(uint64=1) %!s(uint64=562949953421312) %!s(uint64=131072) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-28 17:49:00 +0800 CST
+ID: %!s(cron.EntryID=2), Expression: &{%!s(uint64=1) %!s(uint64=4503599627370496) %!s(uint64=131072) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-28 17:52:00 +0800 CST
+ID: %!s(cron.EntryID=7), Expression: &{%!s(uint64=1) %!s(uint64=4503599627370496) %!s(uint64=131072) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-28 17:52:00 +0800 CST
+[GIN] 2024/12/27 - 17:57:44 | 304 |      71.163µs |    192.168.65.1 | GET      "/"
+[GIN] 2024/12/27 - 17:57:44 | 200 |    1.045762ms |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/27 - 17:57:46 | 200 |     946.772µs |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+[GIN] 2024/12/27 - 17:57:48 | 200 |    5.168806ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 17:57:55 | 200 |    4.731406ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+2024/12/27 17:58:10 Received config: {ID:0 TableName:ods_news MonitorTime:17:59:00 Indicators:[uniquekey 主键重复] PrimaryKey:[uniquekey]}
+2024/12/27 17:58:10 Executing query: INSERT INTO dw_monitor.table_configs (id, table_name, monitor_time,indicator) VALUES (1722043725, 'ods_news', '17:59:00','uniquekey')
+2024/12/27 17:58:10 Added cron job for ods_news with spec 0 59 17 * * *
+Added cron job for ods_news with spec 0 59 17 * * *
+2024/12/27 17:58:10 Executing query: INSERT INTO dw_monitor.table_configs (id, table_name, monitor_time,indicator) VALUES (1794130233, 'ods_news', '17:59:00','主键重复')
+2024/12/27 17:58:10 Added cron job for ods_news with spec 0 59 17 * * *
+Added cron job for ods_news with spec 0 59 17 * * *
+[GIN] 2024/12/27 - 17:58:10 | 200 |  140.982421ms |    192.168.65.1 | POST     "/monitor/addMonitorConfig"
+2024/12/27 17:59:00 Alert: Duplicate primary keys found in table ods_news with fields [uniquekey], 224.
+2024/12/27 17:59:00 Alert: Duplicate primary keys found in table ods_news with fields [uniquekey], 224.
+[GIN] 2024/12/27 - 17:59:49 | 200 |    1.065262ms |    192.168.65.1 | GET      "/monitor/getTables?database=_statistics_"
+[GIN] 2024/12/27 - 17:59:51 | 200 |     673.828µs |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+[GIN] 2024/12/27 - 17:59:54 | 200 |    4.115534ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 18:00:04 | 200 |    5.193402ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 20:06:43 | 200 |    9.860617ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 20:06:48 | 200 |    7.173573ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 20:06:58 | 200 |    6.604656ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 20:07:01 | 200 |    7.227168ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 20:07:08 | 200 |    5.994549ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 20:07:22 | 200 |    6.421394ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 20:08:25 | 200 |   10.936326ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 20:11:21 | 200 |    3.334923ms |    192.168.65.1 | GET      "/"
+[GIN] 2024/12/27 - 20:11:21 | 200 |    1.569348ms |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/27 - 20:11:23 | 200 |    1.909175ms |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+[GIN] 2024/12/27 - 20:11:31 | 200 |    6.538613ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 20:11:40 | 200 |     6.46735ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 20:11:49 | 200 |     7.64165ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 20:13:46 | 200 |     178.751µs |    192.168.65.1 | GET      "/"
+[GIN] 2024/12/27 - 20:13:46 | 200 |    1.895816ms |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/27 - 20:13:47 | 200 |    7.173935ms |    192.168.65.1 | GET      "/monitor/getColumns?database=&table="
+[GIN] 2024/12/27 - 20:13:49 | 200 |    4.225412ms |    192.168.65.1 | GET      "/monitor/getColumns?database=&table="
+[GIN] 2024/12/27 - 20:13:53 | 200 |    3.912581ms |    192.168.65.1 | GET      "/monitor/getColumns?database=&table="
+[GIN] 2024/12/27 - 20:13:57 | 200 |    4.082293ms |    192.168.65.1 | GET      "/monitor/getColumns?database=&table="
+[GIN] 2024/12/27 - 20:13:58 | 200 |    4.038659ms |    192.168.65.1 | GET      "/monitor/getColumns?database=&table="
+[GIN] 2024/12/27 - 20:13:59 | 200 |    4.273441ms |    192.168.65.1 | GET      "/monitor/getColumns?database=&table="
+[GIN] 2024/12/27 - 20:14:18 | 200 |    1.926822ms |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+[GIN] 2024/12/27 - 20:14:23 | 200 |    5.122934ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 20:14:32 | 200 |    5.380764ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 20:14:33 | 200 |     5.13032ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 20:14:35 | 200 |     5.68765ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 20:14:38 | 200 |    6.769596ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 20:14:45 | 200 |     5.34955ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 20:15:34 | 200 |    4.929786ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 20:15:37 | 304 |      55.644µs |    192.168.65.1 | GET      "/"
+[GIN] 2024/12/27 - 20:15:37 | 200 |     793.473µs |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/27 - 20:15:39 | 200 |    1.713886ms |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+[GIN] 2024/12/27 - 20:15:42 | 200 |    5.378091ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 20:19:21 | 200 |      353.41µs |    192.168.65.1 | GET      "/"
+[GIN] 2024/12/27 - 20:19:22 | 200 |    3.228247ms |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/27 - 20:19:24 | 200 |    1.515963ms |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+[GIN] 2024/12/27 - 20:19:29 | 200 |    11.87034ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 20:19:59 | 200 |    7.840064ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 20:20:15 | 200 |     5.80255ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 20:20:48 | 200 |    6.053852ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 21:10:36 | 304 |     264.003µs |    192.168.65.1 | GET      "/"
+[GIN] 2024/12/27 - 21:10:36 | 200 |    2.314393ms |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/27 - 21:10:38 | 200 |    6.344549ms |    192.168.65.1 | GET      "/monitor/getColumns?database=&table="
+[GIN] 2024/12/27 - 21:10:40 | 200 |    1.705223ms |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+[GIN] 2024/12/27 - 21:10:42 | 200 |    6.112278ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 21:11:03 | 200 |    8.348974ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 21:11:12 | 200 |    8.115574ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 21:11:26 | 200 |     5.25449ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 21:22:47 | 200 |    8.669713ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/27 - 21:22:55 | 200 |    6.155374ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=dws_sr_news_di_mv"
+[GIN] 2024/12/27 - 21:25:14 | 200 |    6.497415ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+Error checking for duplicate primary keys in table ods_news: Error 1064 (HY000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'having' at line 1
+2024/12/28 11:10:00 Error getting duplicateCount row count for ods_news: Error 1064 (HY000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'having' at line 1
+Error checking for duplicate primary keys in table ods_news: Error 1064 (HY000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'having' at line 1
+2024/12/28 11:10:00 Error getting duplicateCount row count for ods_news: Error 1064 (HY000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'having' at line 1
+Error checking for duplicate primary keys in table ods_news: Error 1064 (HY000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'having' at line 1
+2024/12/28 11:10:00 Error getting duplicateCount row count for ods_news: Error 1064 (HY000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'having' at line 1
+[GIN] 2024/12/28 - 11:19:03 | 304 |     101.759µs |    192.168.65.1 | GET      "/"
+[GIN] 2024/12/28 - 11:19:03 | 200 |    2.880989ms |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/28 - 11:19:06 | 200 |    1.317445ms |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+[GIN] 2024/12/28 - 11:19:09 | 200 |    5.538448ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/28 - 11:24:01 | 304 |      48.569µs |    192.168.65.1 | GET      "/"
+[GIN] 2024/12/28 - 11:24:01 | 200 |     864.378µs |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/28 - 11:24:03 | 200 |     915.827µs |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+[GIN] 2024/12/28 - 11:24:06 | 200 |    6.141585ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+2024/12/28 11:24:17 Received config: {ID:0 TableName:ods_news MonitorTime:11:25:00 Indicators:[主键重复 dw_ins_time] PrimaryKey:[dw_ins_time]}
+2024/12/28 11:24:17 Executing query: INSERT INTO dw_monitor.table_configs (id, table_name, monitor_time,indicator) VALUES (708589670, 'ods_news', '11:25:00','主键重复')
+2024/12/28 11:24:17 Added cron job for ods_news with spec 0 25 11 * * *
+Added cron job for ods_news with spec 0 25 11 * * *
+2024/12/28 11:24:17 Executing query: INSERT INTO dw_monitor.table_configs (id, table_name, monitor_time,indicator) VALUES (781667481, 'ods_news', '11:25:00','dw_ins_time')
+2024/12/28 11:24:17 Added cron job for ods_news with spec 0 25 11 * * *
+Added cron job for ods_news with spec 0 25 11 * * *
+[GIN] 2024/12/28 - 11:24:17 | 200 |  143.035344ms |    192.168.65.1 | POST     "/monitor/addMonitorConfig"
+2024/12/28 11:25:00 Alert: Duplicate primary keys found in table ods_news with fields [dw_ins_time], 11.
+2024/12/28 11:25:00 Alert: Duplicate primary keys found in table ods_news with fields [dw_ins_time], 11.
+[GIN] 2024/12/28 - 11:25:09 | 200 |     838.775µs |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+2024/12/28 11:25:21 Received config: {ID:0 TableName:ods_news MonitorTime:11:26:00 Indicators:[环比数据量 > 50%] PrimaryKey:[]}
+2024/12/28 11:25:21 Executing query: INSERT INTO dw_monitor.table_configs (id, table_name, monitor_time,indicator) VALUES (1915668305, 'ods_news', '11:26:00','环比数据量 > 50%')
+2024/12/28 11:25:21 Added cron job for ods_news with spec 0 26 11 * * *
+Added cron job for ods_news with spec 0 26 11 * * *
+[GIN] 2024/12/28 - 11:25:21 | 200 |   67.544161ms |    192.168.65.1 | POST     "/monitor/addMonitorConfig"
+Error checking for duplicate primary keys in table ods_news: Error 1064 (HY000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'having' at line 1
+2024/12/28 11:26:00 Error getting duplicateCount row count for ods_news: Error 1064 (HY000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'having' at line 1
+signal: killed
+# monitor_system/backend/admin
+admin/admin.go:27:14: undefined: config
+admin/admin.go:31:16: too many return values
+	have (error)
+	want ()
+admin/admin.go:34:16: too many return values
+	have (error)
+	want ()
+admin/admin.go:36:12: too many return values
+	have (nil)
+	want ()
+admin/admin.go:42:17: undefined: Task
+admin/admin.go:43:18: db.Find undefined (type *sql.DB has no field or method Find)
+admin/admin.go:53:14: undefined: Task
+admin/admin.go:54:18: db.First undefined (type *sql.DB has no field or method First)
+admin/admin.go:63:14: undefined: Task
+admin/admin.go:68:8: db.Create undefined (type *sql.DB has no field or method Create)
+admin/admin.go:68:8: too many errors
+# monitor_system/backend/admin
+admin/admin.go:5:5: "encoding/json" imported and not used
+admin/admin.go:6:5: "fmt" imported and not used
+admin/admin.go:8:5: "time" imported and not used
+admin/admin.go:10:5: "strings" imported and not used
+admin/admin.go:11:5: "github.com/robfig/cron/v3" imported as cron and not used
+# monitor_system/backend/routers
+routers/routers.go:27:27: undefined: admin.GetTasks
+routers/routers.go:28:31: undefined: admin.GetTask
+routers/routers.go:29:28: undefined: admin.CreateTask
+routers/routers.go:30:31: undefined: admin.UpdateTask
+routers/routers.go:31:34: undefined: admin.DeleteTask
+# monitor_system/backend/routers
+routers/routers.go:27:35: undefined: admin.GetTasks
+routers/routers.go:28:39: undefined: admin.GetTask
+routers/routers.go:29:36: undefined: admin.CreateTask
+routers/routers.go:30:39: undefined: admin.UpdateTask
+routers/routers.go:31:42: undefined: admin.DeleteTask
+# command-line-arguments
+./main.go:6:5: "monitor_system/backend/admin" imported and not used
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /                         --> monitor_system/backend/routers.SetupRouter.func1 (3 handlers)
+[GIN-debug] GET    /monitor/getDatabases     --> monitor_system/backend/monitor.GetDatabases (3 handlers)
+[GIN-debug] GET    /monitor/getTables        --> monitor_system/backend/monitor.GetTables (3 handlers)
+[GIN-debug] GET    /monitor/getColumns       --> monitor_system/backend/monitor.GetColumns (3 handlers)
+[GIN-debug] POST   /monitor/addMonitorConfig --> monitor_system/backend/monitor.AddConfig (3 handlers)
+[GIN-debug] GET    /monitor/tasks            --> monitor_system/backend/admin.GetTasks (3 handlers)
+[GIN-debug] GET    /monitor/tasks/:id        --> monitor_system/backend/admin.GetTask (3 handlers)
+[GIN-debug] POST   /monitor/tasks            --> monitor_system/backend/admin.CreateTask (3 handlers)
+[GIN-debug] PUT    /monitor/tasks/:id        --> monitor_system/backend/admin.UpdateTask (3 handlers)
+[GIN-debug] DELETE /monitor/tasks/:id        --> monitor_system/backend/admin.DeleteTask (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:8080
+2024/12/28 11:59:02 Added cron job for ods_news with spec 0 25 11 * * *
+Added cron job for ods_news with spec 0 25 11 * * *
+2024/12/28 11:59:02 Added cron job for ods_news with spec 0 25 11 * * *
+Added cron job for ods_news with spec 0 25 11 * * *
+2024/12/28 11:59:02 Added cron job for ods_news with spec 0 26 11 * * *
+Added cron job for ods_news with spec 0 26 11 * * *
+ID: %!s(cron.EntryID=1), Expression: &{%!s(uint64=1) %!s(uint64=33554432) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:25:00 +0800 CST
+ID: %!s(cron.EntryID=2), Expression: &{%!s(uint64=1) %!s(uint64=33554432) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:25:00 +0800 CST
+ID: %!s(cron.EntryID=3), Expression: &{%!s(uint64=1) %!s(uint64=67108864) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:26:00 +0800 CST
+[GIN] 2024/12/28 - 11:59:27 | 404 |         807ns |    192.168.65.1 | GET      "/monitor/getTasks"
+[GIN] 2024/12/28 - 11:59:43 | 500 |     2.06709ms |    192.168.65.1 | GET      "/monitor/tasks"
+signal: killed
+# monitor_system/backend/admin
+admin/admin.go:45:81: task.Indicator undefined (type Task has no field or method Indicator)
+# monitor_system/backend/admin
+admin/admin.go:44:81: task.Indicator undefined (type Task has no field or method Indicator)
+admin/admin.go:58:199: task.PrimaryKey undefined (type Task has no field or method PrimaryKey)
+admin/admin.go:79:86: task.PrimaryKey undefined (type Task has no field or method PrimaryKey)
+admin/admin.go:93:199: task.PrimaryKey undefined (type Task has no field or method PrimaryKey)
+admin/admin.go:113:10: task.PrimaryKey undefined (type Task has no field or method PrimaryKey)
+admin/admin.go:113:29: input.PrimaryKey undefined (type Task has no field or method PrimaryKey)
+admin/admin.go:116:85: task.PrimaryKey undefined (type Task has no field or method PrimaryKey)
+# monitor_system/backend/admin
+admin/admin.go:58:181: task.Indicators undefined (type Task has no field or method Indicators)
+admin/admin.go:58:199: task.PrimaryKey undefined (type Task has no field or method PrimaryKey)
+admin/admin.go:79:69: task.Indicators undefined (type Task has no field or method Indicators)
+admin/admin.go:79:86: task.PrimaryKey undefined (type Task has no field or method PrimaryKey)
+admin/admin.go:93:181: task.Indicators undefined (type Task has no field or method Indicators)
+admin/admin.go:93:199: task.PrimaryKey undefined (type Task has no field or method PrimaryKey)
+admin/admin.go:112:10: task.Indicators undefined (type Task has no field or method Indicators)
+admin/admin.go:112:29: input.Indicators undefined (type Task has no field or method Indicators)
+admin/admin.go:113:10: task.PrimaryKey undefined (type Task has no field or method PrimaryKey)
+admin/admin.go:113:29: input.PrimaryKey undefined (type Task has no field or method PrimaryKey)
+admin/admin.go:113:29: too many errors
+# monitor_system/backend/admin
+admin/admin.go:58:167: task.Indicators undefined (type Task has no field or method Indicators)
+admin/admin.go:79:69: task.Indicators undefined (type Task has no field or method Indicators)
+admin/admin.go:79:86: task.PrimaryKey undefined (type Task has no field or method PrimaryKey)
+admin/admin.go:93:167: task.Indicators undefined (type Task has no field or method Indicators)
+admin/admin.go:112:10: task.Indicators undefined (type Task has no field or method Indicators)
+admin/admin.go:112:29: input.Indicators undefined (type Task has no field or method Indicators)
+admin/admin.go:113:10: task.PrimaryKey undefined (type Task has no field or method PrimaryKey)
+admin/admin.go:113:29: input.PrimaryKey undefined (type Task has no field or method PrimaryKey)
+admin/admin.go:116:68: task.Indicators undefined (type Task has no field or method Indicators)
+admin/admin.go:116:85: task.PrimaryKey undefined (type Task has no field or method PrimaryKey)
+admin/admin.go:116:85: too many errors
+# monitor_system/backend/admin
+admin/admin.go:79:69: task.Indicators undefined (type Task has no field or method Indicators)
+admin/admin.go:79:86: task.PrimaryKey undefined (type Task has no field or method PrimaryKey)
+admin/admin.go:112:10: task.Indicators undefined (type Task has no field or method Indicators)
+admin/admin.go:112:29: input.Indicators undefined (type Task has no field or method Indicators)
+admin/admin.go:113:10: task.PrimaryKey undefined (type Task has no field or method PrimaryKey)
+admin/admin.go:113:29: input.PrimaryKey undefined (type Task has no field or method PrimaryKey)
+admin/admin.go:116:68: task.Indicators undefined (type Task has no field or method Indicators)
+admin/admin.go:116:85: task.PrimaryKey undefined (type Task has no field or method PrimaryKey)
+# monitor_system/backend/admin
+admin/admin.go:79:85: task.PrimaryKey undefined (type Task has no field or method PrimaryKey)
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /                         --> monitor_system/backend/routers.SetupRouter.func1 (3 handlers)
+[GIN-debug] GET    /monitor/getDatabases     --> monitor_system/backend/monitor.GetDatabases (3 handlers)
+[GIN-debug] GET    /monitor/getTables        --> monitor_system/backend/monitor.GetTables (3 handlers)
+[GIN-debug] GET    /monitor/getColumns       --> monitor_system/backend/monitor.GetColumns (3 handlers)
+[GIN-debug] POST   /monitor/addMonitorConfig --> monitor_system/backend/monitor.AddConfig (3 handlers)
+[GIN-debug] GET    /monitor/tasks            --> monitor_system/backend/admin.GetTasks (3 handlers)
+[GIN-debug] GET    /monitor/tasks/:id        --> monitor_system/backend/admin.GetTask (3 handlers)
+[GIN-debug] POST   /monitor/tasks            --> monitor_system/backend/admin.CreateTask (3 handlers)
+[GIN-debug] PUT    /monitor/tasks/:id        --> monitor_system/backend/admin.UpdateTask (3 handlers)
+[GIN-debug] DELETE /monitor/tasks/:id        --> monitor_system/backend/admin.DeleteTask (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:8080
+2024/12/28 12:06:31 Added cron job for ods_news with spec 0 25 11 * * *
+Added cron job for ods_news with spec 0 25 11 * * *
+2024/12/28 12:06:31 Added cron job for ods_news with spec 0 26 11 * * *
+Added cron job for ods_news with spec 0 26 11 * * *
+2024/12/28 12:06:31 Added cron job for ods_news with spec 0 25 11 * * *
+Added cron job for ods_news with spec 0 25 11 * * *
+ID: %!s(cron.EntryID=1), Expression: &{%!s(uint64=1) %!s(uint64=33554432) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:25:00 +0800 CST
+ID: %!s(cron.EntryID=3), Expression: &{%!s(uint64=1) %!s(uint64=33554432) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:25:00 +0800 CST
+ID: %!s(cron.EntryID=2), Expression: &{%!s(uint64=1) %!s(uint64=67108864) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:26:00 +0800 CST
+[GIN] 2024/12/28 - 12:06:36 | 500 |    9.917497ms |    192.168.65.1 | GET      "/monitor/tasks"
+signal: killed
+# monitor_system/backend/admin
+admin/admin.go:50:13: undefined: json
+admin/admin.go:7:2: package json is not in std (/home/apps/go/src/json)
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /                         --> monitor_system/backend/routers.SetupRouter.func1 (3 handlers)
+[GIN-debug] GET    /monitor/getDatabases     --> monitor_system/backend/monitor.GetDatabases (3 handlers)
+[GIN-debug] GET    /monitor/getTables        --> monitor_system/backend/monitor.GetTables (3 handlers)
+[GIN-debug] GET    /monitor/getColumns       --> monitor_system/backend/monitor.GetColumns (3 handlers)
+[GIN-debug] POST   /monitor/addMonitorConfig --> monitor_system/backend/monitor.AddConfig (3 handlers)
+[GIN-debug] GET    /monitor/tasks            --> monitor_system/backend/admin.GetTasks (3 handlers)
+[GIN-debug] GET    /monitor/tasks/:id        --> monitor_system/backend/admin.GetTask (3 handlers)
+[GIN-debug] POST   /monitor/tasks            --> monitor_system/backend/admin.CreateTask (3 handlers)
+[GIN-debug] PUT    /monitor/tasks/:id        --> monitor_system/backend/admin.UpdateTask (3 handlers)
+[GIN-debug] DELETE /monitor/tasks/:id        --> monitor_system/backend/admin.DeleteTask (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:8080
+2024/12/28 14:57:30 Added cron job for ods_news with spec 0 25 11 * * *
+Added cron job for ods_news with spec 0 25 11 * * *
+2024/12/28 14:57:30 Added cron job for ods_news with spec 0 26 11 * * *
+Added cron job for ods_news with spec 0 26 11 * * *
+2024/12/28 14:57:30 Added cron job for ods_news with spec 0 25 11 * * *
+Added cron job for ods_news with spec 0 25 11 * * *
+ID: %!s(cron.EntryID=1), Expression: &{%!s(uint64=1) %!s(uint64=33554432) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:25:00 +0800 CST
+ID: %!s(cron.EntryID=3), Expression: &{%!s(uint64=1) %!s(uint64=33554432) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:25:00 +0800 CST
+ID: %!s(cron.EntryID=2), Expression: &{%!s(uint64=1) %!s(uint64=67108864) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:26:00 +0800 CST
+[GIN] 2024/12/28 - 14:57:34 | 500 |   10.952452ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 14:57:36 | 500 |   11.948233ms |    192.168.65.1 | GET      "/monitor/tasks"
+signal: killed
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /                         --> monitor_system/backend/routers.SetupRouter.func1 (3 handlers)
+[GIN-debug] GET    /monitor/getDatabases     --> monitor_system/backend/monitor.GetDatabases (3 handlers)
+[GIN-debug] GET    /monitor/getTables        --> monitor_system/backend/monitor.GetTables (3 handlers)
+[GIN-debug] GET    /monitor/getColumns       --> monitor_system/backend/monitor.GetColumns (3 handlers)
+[GIN-debug] POST   /monitor/addMonitorConfig --> monitor_system/backend/monitor.AddConfig (3 handlers)
+[GIN-debug] GET    /monitor/tasks            --> monitor_system/backend/admin.GetTasks (3 handlers)
+[GIN-debug] GET    /monitor/tasks/:id        --> monitor_system/backend/admin.GetTask (3 handlers)
+[GIN-debug] POST   /monitor/tasks            --> monitor_system/backend/admin.CreateTask (3 handlers)
+[GIN-debug] PUT    /monitor/tasks/:id        --> monitor_system/backend/admin.UpdateTask (3 handlers)
+[GIN-debug] DELETE /monitor/tasks/:id        --> monitor_system/backend/admin.DeleteTask (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:8080
+2024/12/28 15:00:38 Added cron job for ods_news with spec 0 25 11 * * *
+Added cron job for ods_news with spec 0 25 11 * * *
+2024/12/28 15:00:38 Added cron job for ods_news with spec 0 25 11 * * *
+Added cron job for ods_news with spec 0 25 11 * * *
+2024/12/28 15:00:38 Added cron job for ods_news with spec 0 26 11 * * *
+Added cron job for ods_news with spec 0 26 11 * * *
+ID: %!s(cron.EntryID=1), Expression: &{%!s(uint64=1) %!s(uint64=33554432) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:25:00 +0800 CST
+ID: %!s(cron.EntryID=2), Expression: &{%!s(uint64=1) %!s(uint64=33554432) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:25:00 +0800 CST
+ID: %!s(cron.EntryID=3), Expression: &{%!s(uint64=1) %!s(uint64=67108864) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:26:00 +0800 CST
+[GIN] 2024/12/28 - 15:00:40 | 500 |    7.924247ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 15:01:55 | 500 |    3.358582ms |    192.168.65.1 | GET      "/monitor/tasks/781667481"
+signal: killed
+# monitor_system/backend/admin
+admin/admin.go:45:30: undefined: task
+admin/admin.go:50:53: undefined: task
+admin/admin.go:54:31: undefined: task
+admin/admin.go:64:11: undefined: fmt
+admin/admin.go:75:30: undefined: task
+admin/admin.go:80:53: undefined: task
+admin/admin.go:84:31: undefined: task
+admin/admin.go:87:27: undefined: task
+# monitor_system/backend/admin
+admin/admin.go:45:7: indicatorsJson declared and not used
+admin/admin.go:46:81: task.indicatorsJson undefined (type Task has no field or method indicatorsJson)
+admin/admin.go:61:11: undefined: fmt
+admin/admin.go:72:30: undefined: task
+admin/admin.go:77:53: undefined: task
+admin/admin.go:81:31: undefined: task
+admin/admin.go:84:27: undefined: task
+# monitor_system/backend/admin
+admin/admin.go:7:2: "encoding/json" imported and not used
+admin/admin.go:45:7: indicatorsJson declared and not used
+admin/admin.go:46:81: task.indicatorsJson undefined (type Task has no field or method indicatorsJson)
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /                         --> monitor_system/backend/routers.SetupRouter.func1 (3 handlers)
+[GIN-debug] GET    /monitor/getDatabases     --> monitor_system/backend/monitor.GetDatabases (3 handlers)
+[GIN-debug] GET    /monitor/getTables        --> monitor_system/backend/monitor.GetTables (3 handlers)
+[GIN-debug] GET    /monitor/getColumns       --> monitor_system/backend/monitor.GetColumns (3 handlers)
+[GIN-debug] POST   /monitor/addMonitorConfig --> monitor_system/backend/monitor.AddConfig (3 handlers)
+[GIN-debug] GET    /monitor/tasks            --> monitor_system/backend/admin.GetTasks (3 handlers)
+[GIN-debug] GET    /monitor/tasks/:id        --> monitor_system/backend/admin.GetTask (3 handlers)
+[GIN-debug] POST   /monitor/tasks            --> monitor_system/backend/admin.CreateTask (3 handlers)
+[GIN-debug] PUT    /monitor/tasks/:id        --> monitor_system/backend/admin.UpdateTask (3 handlers)
+[GIN-debug] DELETE /monitor/tasks/:id        --> monitor_system/backend/admin.DeleteTask (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:8080
+2024/12/28 15:12:08 Added cron job for ods_news with spec 0 25 11 * * *
+Added cron job for ods_news with spec 0 25 11 * * *
+2024/12/28 15:12:08 Added cron job for ods_news with spec 0 25 11 * * *
+Added cron job for ods_news with spec 0 25 11 * * *
+2024/12/28 15:12:08 Added cron job for ods_news with spec 0 26 11 * * *
+Added cron job for ods_news with spec 0 26 11 * * *
+ID: %!s(cron.EntryID=1), Expression: &{%!s(uint64=1) %!s(uint64=33554432) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:25:00 +0800 CST
+ID: %!s(cron.EntryID=2), Expression: &{%!s(uint64=1) %!s(uint64=33554432) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:25:00 +0800 CST
+ID: %!s(cron.EntryID=3), Expression: &{%!s(uint64=1) %!s(uint64=67108864) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:26:00 +0800 CST
+[GIN] 2024/12/28 - 15:12:16 | 200 |    7.980113ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 15:14:23 | 404 |         645ns |    192.168.65.1 | GET      "/monitor/"
+[GIN] 2024/12/28 - 15:14:26 | 404 |         527ns |    192.168.65.1 | GET      "/monitor"
+[GIN] 2024/12/28 - 15:14:29 | 304 |     131.357µs |    192.168.65.1 | GET      "/"
+[GIN] 2024/12/28 - 15:14:29 | 200 |     7.69633ms |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/28 - 15:42:22 | 404 |         398ns |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 15:42:22 | 404 |         857ns |    192.168.65.1 | GET      "/favicon.ico"
+[GIN] 2024/12/28 - 15:42:26 | 200 |    3.427945ms |    192.168.65.1 | GET      "/"
+[GIN] 2024/12/28 - 15:42:27 | 200 |    1.942343ms |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/28 - 15:42:37 | 404 |         649ns |    192.168.65.1 | GET      "/task_management"
+signal: killed
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /                         --> monitor_system/backend/routers.SetupRouter.func1 (3 handlers)
+[GIN-debug] GET    /task_management          --> monitor_system/backend/routers.SetupRouter.func2 (3 handlers)
+[GIN-debug] GET    /monitor/getDatabases     --> monitor_system/backend/monitor.GetDatabases (3 handlers)
+[GIN-debug] GET    /monitor/getTables        --> monitor_system/backend/monitor.GetTables (3 handlers)
+[GIN-debug] GET    /monitor/getColumns       --> monitor_system/backend/monitor.GetColumns (3 handlers)
+[GIN-debug] POST   /monitor/addMonitorConfig --> monitor_system/backend/monitor.AddConfig (3 handlers)
+[GIN-debug] GET    /monitor/tasks            --> monitor_system/backend/admin.GetTasks (3 handlers)
+[GIN-debug] GET    /monitor/tasks/:id        --> monitor_system/backend/admin.GetTask (3 handlers)
+[GIN-debug] POST   /monitor/tasks            --> monitor_system/backend/admin.CreateTask (3 handlers)
+[GIN-debug] PUT    /monitor/tasks/:id        --> monitor_system/backend/admin.UpdateTask (3 handlers)
+[GIN-debug] DELETE /monitor/tasks/:id        --> monitor_system/backend/admin.DeleteTask (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:8080
+2024/12/28 15:43:01 Added cron job for ods_news with spec 0 25 11 * * *
+Added cron job for ods_news with spec 0 25 11 * * *
+2024/12/28 15:43:01 Added cron job for ods_news with spec 0 26 11 * * *
+Added cron job for ods_news with spec 0 26 11 * * *
+2024/12/28 15:43:01 Added cron job for ods_news with spec 0 25 11 * * *
+Added cron job for ods_news with spec 0 25 11 * * *
+ID: %!s(cron.EntryID=1), Expression: &{%!s(uint64=1) %!s(uint64=33554432) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:25:00 +0800 CST
+ID: %!s(cron.EntryID=3), Expression: &{%!s(uint64=1) %!s(uint64=33554432) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:25:00 +0800 CST
+ID: %!s(cron.EntryID=2), Expression: &{%!s(uint64=1) %!s(uint64=67108864) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:26:00 +0800 CST
+[GIN] 2024/12/28 - 15:43:03 | 200 |    2.856029ms |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 15:43:04 | 200 |    8.646181ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 15:43:48 | 200 |    1.190581ms |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/28 - 15:43:53 | 200 |    1.896212ms |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+[GIN] 2024/12/28 - 15:44:02 | 304 |      61.545µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 15:44:02 | 200 |   13.597886ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /                         --> monitor_system/backend/routers.SetupRouter.func1 (3 handlers)
+[GIN-debug] GET    /task_management          --> monitor_system/backend/routers.SetupRouter.func2 (3 handlers)
+[GIN-debug] GET    /monitor/getDatabases     --> monitor_system/backend/monitor.GetDatabases (3 handlers)
+[GIN-debug] GET    /monitor/getTables        --> monitor_system/backend/monitor.GetTables (3 handlers)
+[GIN-debug] GET    /monitor/getColumns       --> monitor_system/backend/monitor.GetColumns (3 handlers)
+[GIN-debug] POST   /monitor/addMonitorConfig --> monitor_system/backend/monitor.AddConfig (3 handlers)
+[GIN-debug] GET    /monitor/tasks            --> monitor_system/backend/admin.GetTasks (3 handlers)
+[GIN-debug] GET    /monitor/tasks/:id        --> monitor_system/backend/admin.GetTask (3 handlers)
+[GIN-debug] POST   /monitor/tasks            --> monitor_system/backend/admin.CreateTask (3 handlers)
+[GIN-debug] PUT    /monitor/tasks/:id        --> monitor_system/backend/admin.UpdateTask (3 handlers)
+[GIN-debug] DELETE /monitor/tasks/:id        --> monitor_system/backend/admin.DeleteTask (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:8080
+[GIN-debug] [ERROR] listen tcp 0.0.0.0:8080: bind: address already in use
+2024/12/28 15:44:39 Failed to run server: listen tcp 0.0.0.0:8080: bind: address already in use
+exit status 1
+[GIN] 2024/12/28 - 15:45:01 | 304 |      54.642µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 15:45:01 | 200 |   10.193445ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 15:52:00 | 500 |     755.824µs |    192.168.65.1 | PUT      "/monitor/tasks/708589670"
+[GIN] 2024/12/28 - 15:52:06 | 500 |      369.47µs |    192.168.65.1 | PUT      "/monitor/tasks/708589670"
+[GIN] 2024/12/28 - 16:04:21 | 200 |    3.758396ms |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/28 - 16:04:36 | 200 |     781.589µs |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+[GIN] 2024/12/28 - 16:07:51 | 304 |      51.393µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 16:07:51 | 200 |   13.924635ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 16:08:01 | 500 |     524.222µs |    192.168.65.1 | DELETE   "/monitor/tasks/781667481"
+[GIN] 2024/12/28 - 16:08:05 | 500 |     559.174µs |    192.168.65.1 | DELETE   "/monitor/tasks/781667481"
+[GIN] 2024/12/28 - 16:08:08 | 500 |     411.801µs |    192.168.65.1 | DELETE   "/monitor/tasks/781667481"
+[GIN] 2024/12/28 - 16:08:09 | 500 |     346.906µs |    192.168.65.1 | DELETE   "/monitor/tasks/781667481"
+[GIN] 2024/12/28 - 16:08:09 | 500 |     403.659µs |    192.168.65.1 | DELETE   "/monitor/tasks/781667481"
+[GIN] 2024/12/28 - 16:08:10 | 500 |     435.982µs |    192.168.65.1 | DELETE   "/monitor/tasks/781667481"
+[GIN] 2024/12/28 - 16:08:14 | 500 |     471.178µs |    192.168.65.1 | DELETE   "/monitor/tasks/781667481"
+[GIN] 2024/12/28 - 16:08:14 | 500 |     467.593µs |    192.168.65.1 | DELETE   "/monitor/tasks/781667481"
+[GIN] 2024/12/28 - 16:08:14 | 500 |     436.677µs |    192.168.65.1 | DELETE   "/monitor/tasks/781667481"
+[GIN] 2024/12/28 - 16:08:15 | 500 |     349.445µs |    192.168.65.1 | DELETE   "/monitor/tasks/781667481"
+signal: killed
+# monitor_system/backend/admin
+admin/admin.go:118:2: undefined: fmt
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /                         --> monitor_system/backend/routers.SetupRouter.func1 (3 handlers)
+[GIN-debug] GET    /task_management          --> monitor_system/backend/routers.SetupRouter.func2 (3 handlers)
+[GIN-debug] GET    /monitor/getDatabases     --> monitor_system/backend/monitor.GetDatabases (3 handlers)
+[GIN-debug] GET    /monitor/getTables        --> monitor_system/backend/monitor.GetTables (3 handlers)
+[GIN-debug] GET    /monitor/getColumns       --> monitor_system/backend/monitor.GetColumns (3 handlers)
+[GIN-debug] POST   /monitor/addMonitorConfig --> monitor_system/backend/monitor.AddConfig (3 handlers)
+[GIN-debug] GET    /monitor/tasks            --> monitor_system/backend/admin.GetTasks (3 handlers)
+[GIN-debug] GET    /monitor/tasks/:id        --> monitor_system/backend/admin.GetTask (3 handlers)
+[GIN-debug] POST   /monitor/tasks            --> monitor_system/backend/admin.CreateTask (3 handlers)
+[GIN-debug] PUT    /monitor/tasks/:id        --> monitor_system/backend/admin.UpdateTask (3 handlers)
+[GIN-debug] DELETE /monitor/tasks/:id        --> monitor_system/backend/admin.DeleteTask (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:8080
+2024/12/28 16:12:17 Added cron job for ods_news with spec 0 25 11 * * *
+Added cron job for ods_news with spec 0 25 11 * * *
+2024/12/28 16:12:17 Added cron job for ods_news with spec 0 25 11 * * *
+Added cron job for ods_news with spec 0 25 11 * * *
+2024/12/28 16:12:17 Added cron job for ods_news with spec 0 26 11 * * *
+Added cron job for ods_news with spec 0 26 11 * * *
+ID: %!s(cron.EntryID=1), Expression: &{%!s(uint64=1) %!s(uint64=33554432) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:25:00 +0800 CST
+ID: %!s(cron.EntryID=2), Expression: &{%!s(uint64=1) %!s(uint64=33554432) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:25:00 +0800 CST
+ID: %!s(cron.EntryID=3), Expression: &{%!s(uint64=1) %!s(uint64=67108864) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:26:00 +0800 CST
+[GIN] 2024/12/28 - 16:12:20 | 304 |      65.987µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 16:12:20 | 200 |   11.562575ms |    192.168.65.1 | GET      "/monitor/tasks"
+Deleting task with ID: 781667481
+2024/12/28 16:12:25 Failed to delete task: Error 1064 (HY000): Unsupported command(COM_STMT_PREPARE)
+[GIN] 2024/12/28 - 16:12:25 | 500 |     539.754µs |    192.168.65.1 | DELETE   "/monitor/tasks/781667481"
+signal: killed
+# monitor_system/backend/admin
+admin/admin.go:123:2: result declared and not used
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /                         --> monitor_system/backend/routers.SetupRouter.func1 (3 handlers)
+[GIN-debug] GET    /task_management          --> monitor_system/backend/routers.SetupRouter.func2 (3 handlers)
+[GIN-debug] GET    /monitor/getDatabases     --> monitor_system/backend/monitor.GetDatabases (3 handlers)
+[GIN-debug] GET    /monitor/getTables        --> monitor_system/backend/monitor.GetTables (3 handlers)
+[GIN-debug] GET    /monitor/getColumns       --> monitor_system/backend/monitor.GetColumns (3 handlers)
+[GIN-debug] POST   /monitor/addMonitorConfig --> monitor_system/backend/monitor.AddConfig (3 handlers)
+[GIN-debug] GET    /monitor/tasks            --> monitor_system/backend/admin.GetTasks (3 handlers)
+[GIN-debug] GET    /monitor/tasks/:id        --> monitor_system/backend/admin.GetTask (3 handlers)
+[GIN-debug] POST   /monitor/tasks            --> monitor_system/backend/admin.CreateTask (3 handlers)
+[GIN-debug] PUT    /monitor/tasks/:id        --> monitor_system/backend/admin.UpdateTask (3 handlers)
+[GIN-debug] DELETE /monitor/tasks/:id        --> monitor_system/backend/admin.DeleteTask (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:8080
+2024/12/28 16:15:06 Added cron job for ods_news with spec 0 25 11 * * *
+Added cron job for ods_news with spec 0 25 11 * * *
+2024/12/28 16:15:06 Added cron job for ods_news with spec 0 26 11 * * *
+Added cron job for ods_news with spec 0 26 11 * * *
+2024/12/28 16:15:06 Added cron job for ods_news with spec 0 25 11 * * *
+Added cron job for ods_news with spec 0 25 11 * * *
+ID: %!s(cron.EntryID=1), Expression: &{%!s(uint64=1) %!s(uint64=33554432) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:25:00 +0800 CST
+ID: %!s(cron.EntryID=3), Expression: &{%!s(uint64=1) %!s(uint64=33554432) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:25:00 +0800 CST
+ID: %!s(cron.EntryID=2), Expression: &{%!s(uint64=1) %!s(uint64=67108864) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:26:00 +0800 CST
+[GIN] 2024/12/28 - 16:15:08 | 304 |      57.706µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 16:15:08 | 200 |   10.953969ms |    192.168.65.1 | GET      "/monitor/tasks"
+Deleting task with ID: 781667481
+[GIN] 2024/12/28 - 16:15:13 | 204 |   73.741477ms |    192.168.65.1 | DELETE   "/monitor/tasks/781667481"
+[GIN] 2024/12/28 - 16:15:13 | 200 |    6.251829ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 16:17:28 | 200 |    3.365347ms |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 16:17:28 | 200 |    8.998755ms |    192.168.65.1 | GET      "/monitor/tasks"
+Deleting task with ID: 708589670
+[GIN] 2024/12/28 - 16:17:33 | 204 |   75.455601ms |    192.168.65.1 | DELETE   "/monitor/tasks/708589670"
+[GIN] 2024/12/28 - 16:17:33 | 200 |    6.514809ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 16:21:33 | 200 |    1.906722ms |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/28 - 16:21:39 | 200 |    1.018405ms |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+[GIN] 2024/12/28 - 16:21:53 | 200 |    9.095524ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/28 - 16:22:37 | 304 |      49.142µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 16:22:37 | 200 |   11.411944ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 16:22:55 | 500 |     379.442µs |    192.168.65.1 | PUT      "/monitor/tasks/1915668305"
+signal: killed
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /                         --> monitor_system/backend/routers.SetupRouter.func1 (3 handlers)
+[GIN-debug] GET    /task_management          --> monitor_system/backend/routers.SetupRouter.func2 (3 handlers)
+[GIN-debug] GET    /monitor/getDatabases     --> monitor_system/backend/monitor.GetDatabases (3 handlers)
+[GIN-debug] GET    /monitor/getTables        --> monitor_system/backend/monitor.GetTables (3 handlers)
+[GIN-debug] GET    /monitor/getColumns       --> monitor_system/backend/monitor.GetColumns (3 handlers)
+[GIN-debug] POST   /monitor/addMonitorConfig --> monitor_system/backend/monitor.AddConfig (3 handlers)
+[GIN-debug] GET    /monitor/tasks            --> monitor_system/backend/admin.GetTasks (3 handlers)
+[GIN-debug] GET    /monitor/tasks/:id        --> monitor_system/backend/admin.GetTask (3 handlers)
+[GIN-debug] POST   /monitor/tasks            --> monitor_system/backend/admin.CreateTask (3 handlers)
+[GIN-debug] PUT    /monitor/tasks/:id        --> monitor_system/backend/admin.UpdateTask (3 handlers)
+[GIN-debug] DELETE /monitor/tasks/:id        --> monitor_system/backend/admin.DeleteTask (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:8080
+2024/12/28 16:25:06 Added cron job for ods_news with spec 0 26 11 * * *
+Added cron job for ods_news with spec 0 26 11 * * *
+ID: %!s(cron.EntryID=1), Expression: &{%!s(uint64=1) %!s(uint64=67108864) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:26:00 +0800 CST
+[GIN] 2024/12/28 - 16:25:09 | 304 |      58.967µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 16:25:09 | 200 |   10.375489ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 16:25:19 | 500 |     414.822µs |    192.168.65.1 | PUT      "/monitor/tasks/1915668305"
+signal: killed
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /                         --> monitor_system/backend/routers.SetupRouter.func1 (3 handlers)
+[GIN-debug] GET    /task_management          --> monitor_system/backend/routers.SetupRouter.func2 (3 handlers)
+[GIN-debug] GET    /monitor/getDatabases     --> monitor_system/backend/monitor.GetDatabases (3 handlers)
+[GIN-debug] GET    /monitor/getTables        --> monitor_system/backend/monitor.GetTables (3 handlers)
+[GIN-debug] GET    /monitor/getColumns       --> monitor_system/backend/monitor.GetColumns (3 handlers)
+[GIN-debug] POST   /monitor/addMonitorConfig --> monitor_system/backend/monitor.AddConfig (3 handlers)
+[GIN-debug] GET    /monitor/tasks            --> monitor_system/backend/admin.GetTasks (3 handlers)
+[GIN-debug] GET    /monitor/tasks/:id        --> monitor_system/backend/admin.GetTask (3 handlers)
+[GIN-debug] POST   /monitor/tasks            --> monitor_system/backend/admin.CreateTask (3 handlers)
+[GIN-debug] PUT    /monitor/tasks/:id        --> monitor_system/backend/admin.UpdateTask (3 handlers)
+[GIN-debug] DELETE /monitor/tasks/:id        --> monitor_system/backend/admin.DeleteTask (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:8080
+2024/12/28 16:27:19 Added cron job for ods_news with spec 0 26 11 * * *
+Added cron job for ods_news with spec 0 26 11 * * *
+ID: %!s(cron.EntryID=1), Expression: &{%!s(uint64=1) %!s(uint64=67108864) %!s(uint64=2048) %!s(uint64=9223372041149743102) %!s(uint64=9223372036854783998) %!s(uint64=9223372036854775935) Local}, Next Run: 2024-12-29 11:26:00 +0800 CST
+[GIN] 2024/12/28 - 16:27:21 | 304 |      54.233µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 16:27:21 | 200 |    8.544041ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 16:27:31 | 200 |   66.256016ms |    192.168.65.1 | PUT      "/monitor/tasks/1915668305"
+[GIN] 2024/12/28 - 16:27:31 | 200 |    6.662155ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 16:27:45 | 304 |       54.82µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 16:27:45 | 200 |   12.454799ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 16:29:34 | 200 |    3.086768ms |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 16:29:34 | 200 |   12.018027ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 16:29:34 | 304 |      55.585µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 16:29:34 | 200 |   13.058156ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 16:29:41 | 200 |   68.209729ms |    192.168.65.1 | PUT      "/monitor/tasks/1915668305"
+[GIN] 2024/12/28 - 16:29:41 | 200 |    6.995414ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 16:32:26 | 200 |   72.153036ms |    192.168.65.1 | PUT      "/monitor/tasks/1915668305"
+[GIN] 2024/12/28 - 16:32:26 | 200 |    7.081387ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 16:32:28 | 304 |      66.276µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 16:32:28 | 200 |   10.045325ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 16:33:36 | 200 |     252.421µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 16:33:36 | 200 |    9.511262ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 16:34:05 | 200 |   72.338136ms |    192.168.65.1 | PUT      "/monitor/tasks/1915668305"
+[GIN] 2024/12/28 - 16:34:05 | 200 |    6.825118ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 16:34:07 | 304 |      58.769µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 16:34:07 | 200 |   10.304823ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 16:34:09 | 304 |      56.325µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 16:34:09 | 200 |    7.670005ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 16:34:25 | 200 |    5.208886ms |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/28 - 16:34:26 | 200 |     882.098µs |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/28 - 16:34:29 | 200 |     787.445µs |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+2024/12/28 16:34:34 Received config: {ID:0 TableName:ods_news MonitorTime:12:00:00 Indicators:[数量为零] PrimaryKey:[]}
+2024/12/28 16:34:34 Executing query: INSERT INTO dw_monitor.table_configs (id, table_name, monitor_time,indicator) VALUES (1305428578, 'ods_news', '12:00:00','数量为零')
+2024/12/28 16:34:35 Added cron job for ods_news with spec 0 0 12 * * *
+Added cron job for ods_news with spec 0 0 12 * * *
+[GIN] 2024/12/28 - 16:34:35 | 200 |   73.059468ms |    192.168.65.1 | POST     "/monitor/addMonitorConfig"
+[GIN] 2024/12/28 - 16:34:37 | 304 |       54.03µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 16:34:37 | 200 |    10.91732ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 16:38:31 | 200 |     262.124µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 16:38:31 | 200 |   14.112175ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 16:39:55 | 200 |      199.23µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 16:39:55 | 200 |   13.207547ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 16:40:38 | 200 |    1.024019ms |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+[GIN] 2024/12/28 - 16:51:06 | 200 |      1.7898ms |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/28 - 16:51:06 | 200 |     877.773µs |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/28 - 16:51:24 | 200 |    1.506965ms |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+[GIN] 2024/12/28 - 16:51:27 | 200 |    5.425223ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/28 - 16:51:35 | 200 |    5.474444ms |    192.168.65.1 | GET      "/monitor/getColumns?database=dw&table=ods_news"
+[GIN] 2024/12/28 - 16:51:46 | 304 |     129.563µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 16:51:47 | 200 |    8.922442ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 16:51:49 | 200 |   11.267094ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:22 | 304 |      86.698µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:22 | 200 |    9.632072ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:22 | 304 |      53.475µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:22 | 200 |   11.355481ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:23 | 304 |      76.171µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:23 | 200 |    9.384691ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:23 | 304 |      64.505µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:23 | 200 |   11.382506ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:24 | 304 |      58.568µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:24 | 200 |   10.972756ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:24 | 304 |      54.817µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:24 | 200 |   10.311778ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:24 | 304 |      51.844µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:24 | 200 |    8.213158ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:25 | 304 |      54.287µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:25 | 200 |    9.084414ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:25 | 304 |      70.733µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:25 | 200 |    8.169989ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:25 | 304 |     118.913µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:25 | 200 |    9.033294ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:26 | 304 |      57.236µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:26 | 200 |   10.444004ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:26 | 304 |      51.394µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:26 | 200 |   10.211741ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:26 | 304 |      64.421µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:26 | 200 |    10.55116ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:26 | 304 |      57.826µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:26 | 200 |    7.764545ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:27 | 304 |       57.24µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:27 | 200 |    8.730167ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:27 | 304 |      63.919µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:27 | 200 |     9.10491ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:27 | 304 |       61.41µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:27 | 200 |    8.898615ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:28 | 304 |      53.447µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:28 | 200 |   15.227548ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:29 | 304 |      54.341µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:29 | 200 |    8.807587ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:29 | 304 |      58.835µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:29 | 200 |    7.543275ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:29 | 304 |      52.475µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:30 | 200 |    9.171632ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:30 | 304 |     191.028µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:30 | 200 |    10.41197ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:30 | 304 |      57.552µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:30 | 200 |    8.962412ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:30 | 304 |      50.313µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:31 | 200 |    8.226861ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:31 | 304 |      60.745µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:31 | 200 |   10.631076ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:31 | 304 |      51.899µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:31 | 200 |    9.927026ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:31 | 304 |      55.659µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:31 | 200 |   10.013549ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:31 | 304 |      54.039µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:31 | 200 |   10.526422ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:32 | 304 |     129.311µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:32 | 200 |    9.458645ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:32 | 304 |      43.186µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:32 | 200 |    8.193698ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:32 | 304 |      48.297µs |    192.168.65.1 | GET      "/task_management"
+[GIN] 2024/12/28 - 19:06:32 | 200 |    8.872907ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:06:35 | 304 |     134.352µs |    192.168.65.1 | GET      "/"
+[GIN] 2024/12/28 - 19:06:35 | 200 |    1.279042ms |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/28 - 19:08:05 | 200 |    4.391352ms |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+[GIN] 2024/12/28 - 19:08:26 | 200 |   11.970328ms |    192.168.65.1 | GET      "/monitor/tasks"
+Deleting task with ID: 1915668305
+[GIN] 2024/12/28 - 19:08:31 | 204 |   76.715623ms |    192.168.65.1 | DELETE   "/monitor/tasks/1915668305"
+[GIN] 2024/12/28 - 19:08:31 | 200 |    8.180423ms |    192.168.65.1 | GET      "/monitor/tasks"
+[GIN] 2024/12/28 - 19:09:02 | 200 |       863.8µs |    192.168.65.1 | GET      "/monitor/getDatabases"
+[GIN] 2024/12/28 - 19:12:20 | 200 |    1.364821ms |    192.168.65.1 | GET      "/monitor/getTables?database=dw"
+Error checking for duplicate primary keys in table ods_news: Error 1064 (HY000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'having' at line 1
+2024/12/29 11:30:45 Error getting duplicateCount row count for ods_news: Error 1064 (HY000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'having' at line 1
+Error checking for duplicate primary keys in table ods_news: Error 1064 (HY000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'having' at line 1
+2024/12/29 12:04:31 Error getting duplicateCount row count for ods_news: Error 1064 (HY000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'having' at line 1
+Error checking for duplicate primary keys in table ods_news: Error 1064 (HY000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'having' at line 1
+2024/12/30 11:35:16 Error getting duplicateCount row count for ods_news: Error 1064 (HY000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'having' at line 1
+Error checking for duplicate primary keys in table ods_news: Error 1064 (HY000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'having' at line 1
+2024/12/30 12:00:00 Error getting duplicateCount row count for ods_news: Error 1064 (HY000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'having' at line 1

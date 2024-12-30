@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>监控任务管理</title>
+    <style>
+        /* 样式部分保持不变 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #ffffff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        main {
+            margin: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #35424a;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #dddddd;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #f4f4f4;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        form label {
+            margin: 10px 0 5px;
+        }
+
+        form input,
+        form select {
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #dddddd;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #35424a;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3b5f70;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #35424a;
+            color: #ffffff;
+            position: relative;
+        }
+
+        /* 新增通知样式 */
+        #notification {
+            display:none;
+            position:fixed;
+            top:20px;
+            right:20px;
+            background-color:#35424a;
+            color:white;
+            padding:10px;
+            border-radius:5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>监控任务管理</h1>
+    </header>
+
+    <main>
+        <section id="task-management">
+            <h2>任务列表</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>表名</th>
+                        <th>监控时间</th>
+                        <th>指标</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="task-table-body">
+                    <!-- 任务数据将填充在这里 -->
+                </tbody>
+            </table>
+        </section>
+
+        <section id="add-task">
+            <h2>添加/修改任务</h2>
+            <form id="task-form">
+                <input type="hidden" id="task-id" name="task-id"> <!-- 存储被编辑任务的 ID -->
+
+                <label for="table-name">表名:</label>
+                <input type="text" id="table-name" name="table-name" required>
+
+                <label for="monitor-time">监控时间:</label>
+                <input type="time" id="monitor-time" name="monitor-time" required>
+
+                <label for="indicator">指标:</label>
+                <input type="text" id="indicator" name="indicator" required>
+
+                <button type="submit">保存任务</button>
+            </form>
+        </section>
+
+        <!-- 通知消息 -->
+        <div id="notification">通知消息</div>
+    </main>
+
+    <footer>
+        <p>© 2023 您的公司名称</p>
+    </footer>
+
+    <script>
+        let tasks = []; // 保存任务的数组
+
+        // 获取任务数据
+        async function fetchTasks() {
+            const response = await fetch('/monitor/tasks');
+            if (response.ok) {
+                tasks = await response.json();
+                console.log(tasks); 
+                displayTasks(); // 更新显示
+            } else {
+                console.error('Error fetching tasks:', response.statusText);
+            }
+        }
+
+        // 显示任务列表
+        function displayTasks() {
+            const taskTableBody = document.getElementById('task-table-body');
+            taskTableBody.innerHTML = '';
+
+            tasks.forEach((task) => {
+                taskTableBody.innerHTML += `
+                    <tr>
+                        <td>${task.id}</td>
+                        <td>${task.table_name}</td>
+                        <td>${task.monitor_time}</td>
+                        <td>${task.indicators}</td>
+                        <td>
+                            <button onclick="editTask(${task.id})">编辑</button>
+                            <button onclick="deleteTask(${task.id})">删除</button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        // 保存或更新任务
+        document.getElementById('task-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const taskId = document.getElementById('task-id').value;
+            const tableName = document.getElementById('table-name').value;
+            const monitorTime = document.getElementById('monitor-time').value;
+            const indicator = document.getElementById('indicator').value;
+
+            const task = {
+                id: taskId ? parseInt(taskId) : undefined, // 如果没有 ID，表示是新任务
+                table_name: tableName,
+                monitor_time: monitorTime,
+                indicator: indicator
+            };
+
+            const method = taskId ? 'PUT' : 'POST'; // 使用 PUT 更新，POST 新增
+            const url = taskId ? `/monitor/tasks/${taskId}` : '/monitor/tasks';
+
+            const response = await fetch(url, {
+                method: method,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(task)
+            });
+
+            const notification = document.getElementById('notification');
+
+            if (response.ok) {
+                resetForm(); // 重置表单
+                await fetchTasks(); // 刷新任务
+                notification.textContent = '任务更新成功！'; // 设置成功通知内容
+                notification.style.display = 'block'; // 显示通知
+            } else {
+                console.error('Error saving task:', response.statusText);
+                notification.textContent = '保存任务时出错，请稍后再试。'; // 设置错误通知内容
+                notification.style.display = 'block'; // 显示通知
+            }
+
+            // 自动隐藏通知
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000); // 3秒后隐藏
+        });
+
+        // 编辑任务
+        function editTask(id) {
+            const task = tasks.find(t => t.id === id);
+            if (task) {
+                document.getElementById('task-id').value = task.id;
+                document.getElementById('table-name').value = task.table_name;
+                document.getElementById('monitor-time').value = task.monitor_time;
+                document.getElementById('indicator').value = task.indicator;
+            }
+        }
+
+        // 删除任务
+        async function deleteTask(id) {
+            const response = await fetch(`/monitor/tasks/${id}`, {
+                method: 'DELETE'
+            });
+
+            const notification = document.getElementById('notification');
+
+            if (response.ok) {
+                await fetchTasks(); // 刷新任务
+                notification.textContent = '任务删除成功！';
+                notification.style.display = 'block';
+            } else {
+                console.error('Error deleting task:', response.statusText);
+                notification.textContent = '删除任务失败，请稍后再试。';
+                notification.style.display = 'block';
+            }
+
+            // 自动隐藏通知
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000); // 3秒后隐藏
+        }
+
+        // 重置表单
+        function resetForm() {
+            document.getElementById('task-form').reset();
+            document.getElementById('task-id').value = ''; // 清空任务 ID
+        }
+
+        // 初始化任务展示
+        fetchTasks();
+    </script>
+</body>
+</html>

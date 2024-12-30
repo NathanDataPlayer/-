@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>监控配置</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js"></script>
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f8f9fa; /* 设置背景色 */
+        }
+
+        .alert {
+            display: none; /* 初始隐藏提示框 */
+            transition: opacity 0.5s ease-in-out; /* 添加过渡效果 */
+        }
+
+        .card {
+            transition: transform 0.2s; /* 用于 hover 效果 */
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group label {
+            font-weight: bold; /* 强调标签字体 */
+        }
+
+        #monitorConfigForm {
+            background: white; /* 表单背景 */
+            border-radius: 8px; /* 圆角 */
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+        }
+
+        button {
+            width: 100%; /* 按钮占满整个宽度 */
+        }
+
+        #primaryKeySection {
+            display: none; /* 初始隐藏 */
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 使复选框和下拉菜单水平对齐 */
+        .d-flex-align {
+            display: flex;
+            align-items: center;
+        }
+
+        #primaryKeyFields {
+            margin-top: 10px; /* 给主键选择框一些上边距 */
+            margin-left: 20px; /* 给主键选择框一些左边距 */
+        }
+
+        #primaryKeyLabel {
+            display: none; /* 初始隐藏 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4 text-center">监控配置</h1>
+        <div id="successAlert" class="alert alert-success">提交成功!</div>
+        <div id="errorAlert" class="alert alert-danger"></div>
+
+        <div class="card mt-4">
+            <form id="monitorConfigForm">
+                <div class="form-group">
+                    <label for="databaseSelect">选择数据库:</label>
+                    <select class="form-control" id="databaseSelect" onchange="fetchTables()">
+                        <option value="">请选择数据库</option>
+                        <!-- 数据库选项将动态填充 -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tableSelect">选择表:</label>
+                    <select class="form-control" id="tableSelect" onchange="enableIndicators()">
+                        <option value="">请选择表</option>
+                        <!-- 表选项将动态填充 -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>选择监控指标:</label><br />
+                    <div class="checkbox-group">
+                        <div class="form-check d-flex-align">
+                            <input type="checkbox" class="form-check-input" id="indicator1" value="环比数据量 < 50%">
+                            <label class="form-check-label" for="indicator1">环比数据量 < 50%</label>
+                        </div>
+                        <div class="form-check d-flex-align">
+                            <input type="checkbox" class="form-check-input" id="indicator2" value="环比数据量 > 50%">
+                            <label class="form-check-label" for="indicator2">环比数据量 > 50%</label>
+                        </div>
+                        <div class="form-check d-flex-align">
+                            <input type="checkbox" class="form-check-input" id="indicator3" value="数量为零">
+                            <label class="form-check-label" for="indicator3">数量为零</label>
+                        </div>
+                        <div class="form-check d-flex-align">
+                            <input type="checkbox" class="form-check-input" id="indicator4" value="主键重复" onchange="togglePrimaryKeyFields()">
+                            <label class="form-check-label" for="indicator4">主键重复</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="primaryKeySection" style="display:none;">
+                    <label id="primaryKeyLabel">选择主键字段:</label><br />
+                    <div id="primaryKeyFields"></div> <!-- 主键选择框放在这里 -->
+                </div>
+
+                <div class="form-group" id="monitorTimeSection" style="display:none;">
+                    <label for="monitorTime">选择监控时间:</label>
+                    <input type="text" class="form-control" id="monitorTime" required placeholder="HH:MM:SS">
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="submitButton">提交配置</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE_URL = '/monitor'; // 根据你的后端 API 来调整
+
+        document.addEventListener('DOMContentLoaded', function () {
+            fetchDatabases(); // 页面加载时获取数据库
+            flatpickr("#monitorTime", {
+                enableTime: true,
+                noCalendar: true,
+                dateFormat: "H:i:S",
+                time_24hr: true
+            });
+        });
+
+        async function fetchDatabases() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/getDatabases`);
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                const databases = await response.json();
+
+                const dbSelect = document.getElementById('databaseSelect');
+                dbSelect.innerHTML = '<option value="">请选择数据库</option>'; // 清空选项内容
+                databases.forEach(db => {
+                    const option = document.createElement('option');
+                    option.value = db;
+                    option.textContent = db;
+                    dbSelect.appendChild(option);
+                });
+            } catch (error) {
+                console.error("Error fetching databases:", error);
+            }
+        }
+
+        async function fetchTables() {
+            const database = document.getElementById('databaseSelect').value;
+            if (database === "") return; // 如果没有选择数据库，直接返回
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/getTables?database=${database}`);
+                const tables = await response.json();
+
+                const tableSelect = document.getElementById('tableSelect');
+                tableSelect.innerHTML = '<option value="">请选择表</option>'; // 清空并重新添加选项
+                tables.forEach(table => {
+                    const option = document.createElement('option');
+                    option.value = table;
+                    option.textContent = table;
+                    tableSelect.appendChild(option);
+                });
+            } catch (error) {
+                console.error("Error fetching tables:", error);
+            }
+        }
+
+        async function fetchPrimaryKeys() {
+            const table = document.getElementById('tableSelect').value;
+            const database = document.getElementById('databaseSelect').value;
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/getColumns?database=${database}&table=${table}`);
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                const primaryKeys = await response.json();
+
+                const primaryKeyFieldsDiv = document.getElementById('primaryKeyFields');
+                primaryKeyFieldsDiv.innerHTML = ''; // 清空现有选项
+
+                primaryKeys.forEach(key => {
+                    const checkbox = document.createElement('div');
+                    checkbox.className = 'form-check';
+                    checkbox.innerHTML = `
+                        <input type="checkbox" class="form-check-input" id="pk_${key}" value="${key}">
+                        <label class="form-check-label" for="pk_${key}">${key}</label>
+                    `;
+                    primaryKeyFieldsDiv.appendChild(checkbox);
+                });
+                
+                document.getElementById('primaryKeySection').style.display = 'block'; // 显示主键字段区域
+                document.getElementById('primaryKeyLabel').style.display = 'block'; // 显示选择主键字段文字
+            } catch (error) {
+                console.error("Error fetching primary keys:", error);
+            }
+        }
+
+        function togglePrimaryKeyFields() {
+            const isChecked = document.getElementById('indicator4').checked;
+            if (isChecked) {
+                fetchPrimaryKeys(); // 获取主键字段
+            } else {
+                document.getElementById('primaryKeySection').style.display = 'none'; // 隐藏主键字段区域
+                document.getElementById('primaryKeyFields').innerHTML = ''; // 清空复选框
+                document.getElementById('primaryKeyLabel').style.display = 'none'; // 隐藏选择主键字段文字
+            }
+        }
+
+        function enableIndicators() {
+            if (document.getElementById('tableSelect').value) {
+                document.getElementById('monitorTimeSection').style.display = 'block'; // 显示监控时间选择框
+            } else {
+                document.getElementById('monitorTimeSection').style.display = 'none'; // 隐藏监控时间选择框
+                document.getElementById('primaryKeySection').style.display = 'none'; // 隐藏主键字段区域
+                document.getElementById('primaryKeyFields').innerHTML = ''; // 清空复选框
+                document.getElementById('primaryKeyLabel').style.display = 'none'; // 隐藏选择主键字段文字
+            }
+        }
+
+        // 提交表单
+        document.getElementById('monitorConfigForm').onsubmit = async function (e) {
+            e.preventDefault(); // 防止默认提交
+            const submitButton = document.getElementById('submitButton');
+            submitButton.disabled = true; // 禁用提交按钮
+
+            const selectedTable = document.getElementById('tableSelect').value;
+            const selectedIndicators = Array.from(document.querySelectorAll('input[type=checkbox]:checked')).map(input => input.value);
+            const primaryKeys = Array.from(document.querySelectorAll('input[id^="pk_"]:checked')).map(input => input.value); // 获取选择的主键
+
+            const monitorTime = document.getElementById('monitorTime').value; // 获取选择的时分秒
+
+            const data = {
+                database: document.getElementById('databaseSelect').value,
+                table_name: selectedTable,
+                monitor_time: monitorTime, // 使用选择的监控时间
+                indicators: selectedIndicators, // 提交多个指标
+                primary_key: primaryKeys // 提交选择的主键
+            };
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/addMonitorConfig`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                submitButton.disabled = false; // 启用提交按钮
+
+                if (result.success) {
+                    document.getElementById('successAlert').style.display = 'block';
+                    document.getElementById('errorAlert').style.display = 'none'; // 确保错误提示隐藏
+                    document.getElementById('monitorConfigForm').reset(); // 重置表单
+                    enableIndicators(); // 隐藏指标选择区域
+                } else {
+                    console.error("Error:", result.error);
+                    document.getElementById('errorAlert').textContent = result.error || '提交失败，请重试。'; // 显示具体错误信息
+                    document.getElementById('errorAlert').style.display = 'block';
+                    document.getElementById('successAlert').style.display = 'none'; // 确保成功提示隐藏
+                }
+            } catch (error) {
+                console.error("Error submitting form:", error);
+                document.getElementById('errorAlert').textContent = "提交失败，请重试。";
+                document.getElementById('errorAlert').style.display = 'block';
+                submitButton.disabled = false; // 启用提交按钮
+            }
+        };
+    </script>
+</body>
+</html>
